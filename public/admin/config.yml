@@ -1,0 +1,59 @@
+backend:
+  name: github
+  repo: <GITHUB_USER>/<REPO_NAME>
+  branch: main
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: <CLOUDINARY_CLOUD_NAME>
+    api_key: <CLOUDINARY_API_KEY>
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages/about.md"
+        label: "About"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "content/pages/programs.md"
+        label: "Programs"
+        name: "programs"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "content/pages/facilities.md"
+        label: "Facilities"
+        name: "facilities"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "content/pages/admissions.md"
+        label: "Admissions"
+        name: "admissions"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "content/pages/csr.md"
+        label: "CSR"
+        name: "csr"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "news"
+    label: "News"
+    folder: "content/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

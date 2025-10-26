@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+a {
+  @apply text-brand-700 underline-offset-4 transition hover:text-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+}
+
+main {
+  @apply flex-1;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-brand-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+}
+
+.section {
+  @apply mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8;
+}
+
+.card {
+  @apply rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100;
+}
+
+header nav a {
+  @apply font-medium text-sm no-underline;
+}
+
+header nav a.active {
+  @apply text-brand-600;
+}
+
+.skip-link {
+  @apply absolute left-1/2 top-2 -translate-x-1/2 -translate-y-full rounded bg-brand-600 px-4 py-2 text-white focus:translate-y-0;
+}
+
+form label {
+  @apply block text-sm font-medium text-slate-700;
+}
+
+form input,
+form textarea {
+  @apply mt-1 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-base text-slate-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500;
+}
+
+form button {
+  @apply btn-primary disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+footer {
+  @apply bg-slate-900 text-slate-200;
+}
+
+footer a {
+  @apply text-slate-100 underline hover:text-brand-200;
+}
+
+img {
+  @apply rounded-xl;
+}
