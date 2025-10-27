@@ -1,13 +1,13 @@
 backend:
   name: github
-  repo: <GITHUB_USER>/<REPO_NAME>
+  repo: vishalnatekar/ajitmanochetan
   branch: main
 
 media_library:
   name: cloudinary
   config:
-    cloud_name: <CLOUDINARY_CLOUD_NAME>
-    api_key: <CLOUDINARY_API_KEY>
+    cloud_name: dsptnmry1
+    api_key: 338363331428471
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
