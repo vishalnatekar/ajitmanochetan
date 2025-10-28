@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import Link from 'next/link'
 import './styles/globals.css'
 
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Ajita Manochetana'
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Ajit Manochetana'
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'ajitmanochetana94@gmail.com'
 const contactPhone = process.env.NEXT_PUBLIC_PHONE ?? '+91 9448404434, +91 9481135153'
 const contactAddress = process.env.NEXT_PUBLIC_ADDRESS_LINE ?? 'Subhas Nagar, Marathikoppa, Sirsi-581402'
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white">AM</span>
                 <span className="max-w-xs leading-tight">
                   <span className="block text-base font-bold">{siteName}</span>
-                  <span className="text-xs font-normal text-slate-500">Special Education &amp; Therapy Centre</span>
+                  <span className="text-xs font-normal text-slate-500">Ajit manochetana trust, sirsi</span>
                 </span>
               </Link>
               <nav aria-label="Main navigation" className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-700">

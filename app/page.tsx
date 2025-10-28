@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ContactForm } from './components/contact-form'
 
 const mapEmbedUrl = process.env.NEXT_PUBLIC_MAP_EMBED_URL ?? ''
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Ajita Manochetana'
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Ajit Manochetana'
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'ajitmanochetana94@gmail.com'
 const contactPhone = process.env.NEXT_PUBLIC_PHONE ?? '+91 9448404434, +91 9481135153'
 const contactPhones = contactPhone
@@ -35,6 +35,9 @@ export default function HomePage() {
             <p className="text-lg text-slate-600">
               {siteName} Trust reaches rural and urban families with mental health services, day care, and individualised education through Vikas School for Special Children and allied programmes.
             </p>
+            <div className="inline-flex items-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm">
+              25 fruitful years of service in the fields of mental health &amp; education of special children
+            </div>
             <div className="flex flex-wrap gap-3">
               <Link href="mailto:ajitmanochetana94@gmail.com" className="btn-primary">
                 Write to the trust
