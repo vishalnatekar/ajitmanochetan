@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { ContactForm } from './components/contact-form'
 
 const mapEmbedUrl = process.env.NEXT_PUBLIC_MAP_EMBED_URL ?? ''
@@ -17,7 +16,7 @@ const sanitizeTel = (value: string) => value.replace(/[^+\d]/g, '')
 export const metadata: Metadata = {
   title: 'Home',
   description:
-    'Ajita Manochetana is a CSR-ready special education centre in Bengaluru providing individualised education, therapies, and inclusive programmes since 1997.',
+    'Ajit Manochetana Trust in Sirsi delivers mental health services, Vikas School programmes, and rehabilitation support for rural and urban families.',
 }
 
 export default function HomePage() {
@@ -26,29 +25,18 @@ export default function HomePage() {
       <section className="bg-gradient-to-br from-brand-50 via-white to-slate-100">
         <div className="section grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
           <div className="space-y-6">
-            <span className="inline-flex items-center rounded-full bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-700 ring-1 ring-brand-100">
-              Sirsi · Uttara Kannada
-            </span>
-            <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-              Community-rooted mental health, education, and rehabilitation support.
+            <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+              25 fruitful years of service in the fields of mental health &amp; education of special children
             </h1>
+            <p className="text-lg font-semibold text-slate-600 sm:text-xl">
+              Community-rooted mental health, education, and rehabilitation support.
+            </p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 sm:text-sm">
+              Sirsi · Uttara Kannada · Ajit Manochetana Trust
+            </p>
             <p className="text-lg text-slate-600">
               {siteName} Trust reaches rural and urban families with mental health services, day care, and individualised education through Vikas School for Special Children and allied programmes.
             </p>
-            <div className="inline-flex items-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm">
-              25 fruitful years of service in the fields of mental health &amp; education of special children
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="mailto:ajitmanochetana94@gmail.com" className="btn-primary">
-                Write to the trust
-              </Link>
-              <Link
-                href={mapEmbedUrl || 'https://maps.app.goo.gl'}
-                className="inline-flex items-center justify-center rounded-full border border-brand-200 px-5 py-2 text-sm font-semibold text-brand-700 transition hover:border-brand-400 hover:bg-brand-50"
-              >
-                Plan a visit
-              </Link>
-            </div>
             <dl className="grid gap-6 sm:grid-cols-3">
               {[
                 { label: 'Primary focus', value: 'Mental health & special education' },
@@ -68,7 +56,7 @@ export default function HomePage() {
               The trust collaborates with healthcare professionals, educators, and community leaders to deliver compassionate care. Monthly psychiatric camps, Vyasanamukta Andolana awareness drives, and parent counselling ensure a full-circle approach to wellbeing.
             </p>
             <p className="text-sm leading-relaxed text-slate-600">
-              During the COVID-19 period, teachers and volunteers delivered food and medical kits door-to-door, highlighting the trust&apos;s commitment to every household it serves.
+              During the COVID-19 period, teachers and staff delivered food and medical kits door-to-door, highlighting the trust&apos;s commitment to every household it serves.
             </p>
           </div>
         </div>
@@ -212,7 +200,7 @@ export default function HomePage() {
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-slate-900">Connect with us</h2>
             <p className="text-lg text-slate-600">
-              Schedule a school visit, plan a CSR engagement, or volunteer. We respond within two working days.
+              Contact the trust office for therapy camps, Vikas School guidance, or community outreach support. Responses are provided during working hours.
             </p>
             <div className="grid gap-4 text-sm text-slate-600 sm:grid-cols-2">
               <div className="card">
