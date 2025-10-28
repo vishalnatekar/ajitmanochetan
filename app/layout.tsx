@@ -4,19 +4,20 @@ import Link from 'next/link'
 import './styles/globals.css'
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Ajita Manochetana'
-const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'info@ajitamanochetana.org'
-const contactPhone = process.env.NEXT_PUBLIC_PHONE ?? '+91 9000000000'
-const contactAddress = process.env.NEXT_PUBLIC_ADDRESS_LINE ?? 'Bengaluru, Karnataka'
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'ajitmanochetana94@gmail.com'
+const contactPhone = process.env.NEXT_PUBLIC_PHONE ?? '+91 9448404434, +91 9481135153'
+const contactAddress = process.env.NEXT_PUBLIC_ADDRESS_LINE ?? 'Subhas Nagar, Marathikoppa, Sirsi-581402'
+const contactPhones = contactPhone
+  .split(/[|,/]/)
+  .map((value) => value.trim())
+  .filter(Boolean)
+
+const sanitizeTel = (value: string) => value.replace(/[^+\d]/g, '')
 
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/programs', label: 'Programs' },
-  { href: '/facilities', label: 'Facilities' },
-  { href: '/admissions', label: 'Admissions' },
-  { href: '/csr', label: 'CSR' },
   { href: '/gallery', label: 'Gallery' },
-  { href: '/news', label: 'News' },
 ]
 
 export const metadata: Metadata = {
@@ -68,9 +69,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <p>
                   <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
                 </p>
-                <p>
-                  <a href={`tel:${contactPhone.replace(/\s+/g, '')}`}>{contactPhone}</a>
-                </p>
+                {(contactPhones.length > 0 ? contactPhones : [contactPhone]).map((phone) => (
+                  <p key={phone}>
+                    <a href={`tel:${sanitizeTel(phone)}`}>{phone}</a>
+                  </p>
+                ))}
               </div>
             </div>
           </header>
@@ -93,22 +96,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <li>
                     <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
                   </li>
-                  <li>
-                    <a href={`tel:${contactPhone.replace(/\s+/g, '')}`}>{contactPhone}</a>
-                  </li>
+                  {(contactPhones.length > 0 ? contactPhones : [contactPhone]).map((phone) => (
+                    <li key={phone}>
+                      <a href={`tel:${sanitizeTel(phone)}`}>{phone}</a>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wide text-slate-300">Quick Links</p>
                 <ul className="mt-2 space-y-2">
                   <li>
-                    <Link href="/csr" className="no-underline">
-                      CSR Partner Kit
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/news" className="no-underline">
-                      Latest News
+                    <Link href="/about" className="no-underline">
+                      About the Trust
                     </Link>
                   </li>
                   <li>

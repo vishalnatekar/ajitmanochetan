@@ -1,6 +1,6 @@
 # Ajita Manochetana Website
 
-Static Next.js site for Ajita Manochetana, a special school in Bengaluru. The site is CSR-ready, editable via Decap CMS, and optimised for deployment on Cloudflare Pages.
+Static Next.js site for Ajita Manochetana Trust, a mental health and special education organisation based in Sirsi, Uttara Kannada.
 
 ## Stack
 
@@ -27,19 +27,19 @@ cp .env.example .env
 
 ## Build & Deploy
 
-- Build: `npm run build` (runs `next build && next export`, output in `out/`).
-- Deploy to Cloudflare Pages with:
+- Build: `npm run build` (Next.js generates a static export in `out/`).
+- On Vercel set:
+  - Framework preset: **Other** (so Vercel serves the static export)
+  - Install command: leave blank or `npm install`
   - Build command: `npm run build`
   - Output directory: `out`
-  - Node.js version: 18+
-- Configure the same environment variables in Cloudflare Pages → Settings → Environment Variables.
+- Add the same environment variables in Vercel → Project → Settings → Environment Variables (Preview + Production).
 
 ## Editing via Decap CMS
 
-1. Ensure GitHub OAuth app is configured for the repo and update `public/admin/config.yml` with the correct `repo`, `cloud_name`, and `api_key`.
+1. Ensure a GitHub OAuth app is configured for the repo and update `public/admin/config.yml` with the correct `repo`, `cloud_name`, and `api_key` (plus `base_url`/`auth_endpoint` once the OAuth bridge is deployed).
 2. Visit `/admin` on the deployed site and log in with GitHub.
-3. Pages → edit Markdown files (About, Programs, Facilities, Admissions, CSR).
-4. News → create, edit, or delete posts. Publish to commit changes back to the repo.
+3. Pages → edit Markdown files (currently only the About page lives in Markdown).
 
 ### Media & images
 
@@ -47,26 +47,14 @@ cp .env.example .env
 - Recommended format: landscape JPG/PNG, 1600px wide, ≤ 300KB.
 - Optimise images before upload to keep the site fast.
 
-### CSR PDFs
-
-- Place documents in `public/docs/` (e.g., `public/docs/registration-pan.pdf`).
-- Update links on the CSR page Markdown or directly in the page component if structure changes.
-
-### News posts
-
-- Each post lives in `content/news/*.md` with frontmatter fields: `title`, `date`, `cover`, optional `summary`.
-- Use `/admin` → News to create or update posts; Decap will commit Markdown files automatically.
-
 ### Gallery updates
 
-- Edit `app/(site)/gallery/page.tsx` to update albums or image lists.
-- Use Cloudinary URLs (ensure they are set to `delivery type: secure`), and keep using `loading="lazy"` for performance.
-- Longer-term, migrate albums into a Decap collection if needed.
+- Edit `app/(site)/gallery/page.tsx` to publish photo collections once assets are ready.
+- Continue hosting media on Cloudinary for performance and cost efficiency.
 
 ## Content structure
 
-- Markdown pages: `content/pages/*.md`
-- News posts: `content/news/*.md`
+- Markdown pages: `content/pages/about.md`
 - Public assets: `public/`
 - Markdown utilities: `app/components/md.ts`
 
@@ -85,6 +73,6 @@ cp .env.example .env
 
 - `npm run lint`
 - `npm run build`
-- Run Lighthouse audits (Perf, Access, SEO ≥ 90) on `/`, `/about`, `/csr`, `/news/<slug>`.
+- Run Lighthouse audits (Perf, Access, SEO ≥ 90) on `/`, `/about`, `/gallery`.
 - Submit the Formspree form (use their test endpoint while configuring).
 - Validate that Decap CMS can authenticate and save updates to the repo.
