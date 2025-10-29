@@ -128,6 +128,7 @@ export default function HomePage() {
                   {[
                     'Late Sri Vishwesha Tirtha Swamiji',
                     'Shri Gangadharendra Saraswati Swamiji',
+                    'Srimad Vidyadeedh Tirth shripad Vader Swamiji of Sansthan Gokarna Partagsli Jeevottam Math',
                     'Dr. H. Sudarshan',
                     'Late Dr. Ashok Pai',
                     'Dr. Anand Pandurangi',

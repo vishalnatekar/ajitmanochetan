@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white">AM</span>
                 <span className="max-w-xs leading-tight">
                   <span className="block text-base font-bold">{siteName}</span>
-                  <span className="text-xs font-normal text-slate-500">Ajit manochetana trust, sirsi</span>
+                  <span className="text-xs font-normal text-slate-500">Ajit manochetana trust, Sirsi</span>
                 </span>
               </Link>
               <nav aria-label="Main navigation" className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-700">
