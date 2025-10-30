@@ -10,7 +10,11 @@
       window.CMS_CONFIG_URL = '/admin/config.yml';
     </script>
     <script src="/admin/netlify-cms.js"></script>
-    <script src="https://unpkg.com/netlify-cms-media-library-cloudinary@1.3.10/dist/netlify-cms-media-library-cloudinary.js"></script>
+    <script>
+      window.CMS_ENV = window.CMS_ENV || {};
+      window.CMS_ENV.CLOUDINARY_LIBRARY = '/admin/cloudinary.js';
+    </script>
+    <script src="/admin/cloudinary.js"></script>
   </head>
   <body>
     <div id="nc-root"></div>
