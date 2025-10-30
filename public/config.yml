@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: vishalnatekar/ajitmanochetan
+  branch: main
+  base_url: https://netlify-cms-github-oauth-provider-zeta.vercel.app
+  auth_endpoint: /auth
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: dsptnmry1
+    api_key: 338363331428471
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages/about.md"
+        label: "About"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }

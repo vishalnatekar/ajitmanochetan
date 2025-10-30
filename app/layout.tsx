@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import './styles/globals.css'
+import { Analytics } from '@vercel/analytics/react'
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Ajit Manochetana'
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'ajitmanochetana94@gmail.com'
@@ -124,6 +125,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </footer>
         </div>
+        <Analytics />
       </body>
     </html>
   )
