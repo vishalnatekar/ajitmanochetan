@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { ContactForm } from './components/contact-form'
 
-const mapEmbedUrl = process.env.NEXT_PUBLIC_MAP_EMBED_URL ?? ''
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Ajit Manochetana'
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'ajitmanochetana94@gmail.com'
 const contactPhone = process.env.NEXT_PUBLIC_PHONE ?? '+91 9448404434, +91 9481135153'
@@ -10,6 +9,11 @@ const contactPhones = contactPhone
   .map((value) => value.trim())
   .filter(Boolean)
 const contactAddress = process.env.NEXT_PUBLIC_ADDRESS_LINE ?? 'Subhas Nagar, Marathikoppa, Sirsi-581402'
+const rawMapEmbedUrl = process.env.NEXT_PUBLIC_MAP_EMBED_URL ?? ''
+const mapEmbedUrl =
+  rawMapEmbedUrl && !/maps\.app\.goo\.gl|goo\.gl\/maps/.test(rawMapEmbedUrl)
+    ? rawMapEmbedUrl
+    : `https://maps.google.com/maps?q=${encodeURIComponent(contactAddress)}&output=embed`
 
 const sanitizeTel = (value: string) => value.replace(/[^+\d]/g, '')
 
