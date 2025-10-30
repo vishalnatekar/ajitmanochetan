@@ -20,6 +20,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/gallery', label: 'Gallery' },
+  { href: '/news', label: 'News' },
 ]
 
 export const metadata: Metadata = {
@@ -111,6 +112,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <li>
                     <Link href="/about" className="no-underline">
                       About the Trust
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/news" className="no-underline">
+                      News &amp; Updates
                     </Link>
                   </li>
                   <li>

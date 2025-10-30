@@ -2,7 +2,7 @@ import next from 'eslint-config-next'
 
 const config = [
   {
-    ignores: ['node_modules/**', '.next/**', 'out/**'],
+    ignores: ['node_modules/**', '.next/**', 'out/**', 'public/admin/netlify-cms.js'],
   },
   ...next,
   {

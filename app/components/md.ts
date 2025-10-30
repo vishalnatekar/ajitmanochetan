@@ -29,6 +29,19 @@ export function readCollection(dir: string) {
       return { slug, data }
     })
     .sort((a, b) => {
+      const orderA = typeof a.data.order === 'number' ? a.data.order : undefined
+      const orderB = typeof b.data.order === 'number' ? b.data.order : undefined
+
+      if (orderA !== undefined && orderB !== undefined && orderA !== orderB) {
+        return orderA - orderB
+      }
+      if (orderA !== undefined && orderB === undefined) {
+        return -1
+      }
+      if (orderB !== undefined && orderA === undefined) {
+        return 1
+      }
+
       const dateA = new Date(a.data.date ?? 0).getTime()
       const dateB = new Date(b.data.date ?? 0).getTime()
       return dateB - dateA

@@ -40,6 +40,8 @@ cp .env.example .env
 1. Ensure a GitHub OAuth app is configured for the repo and update `public/admin/config.yml` with the correct `repo`, `cloud_name`, and `api_key` (plus `base_url`/`auth_endpoint` once the OAuth bridge is deployed).
 2. Visit `/admin` on the deployed site and log in with GitHub.
 3. Pages → edit Markdown files (currently only the About page lives in Markdown).
+4. Gallery → upload photos (Cloudinary) and add captions/order for the gallery page.
+5. News → create or edit articles with cover images, summaries, and body content.
 
 ### Media & images
 
@@ -49,12 +51,19 @@ cp .env.example .env
 
 ### Gallery updates
 
-- Edit `app/(site)/gallery/page.tsx` to publish photo collections once assets are ready.
-- Continue hosting media on Cloudinary for performance and cost efficiency.
+- Manage entries from `/admin` → Gallery (images + captions stored under `content/gallery/`).
+- Uploaded media is stored in Cloudinary; the gallery page reads directly from these Markdown files.
+
+### News updates
+
+- Manage posts from `/admin` → News (Markdown files stored under `content/news/`).
+- Each post supports title, publish date, cover image, summary, and rich body content.
 
 ## Content structure
 
 - Markdown pages: `content/pages/about.md`
+- Gallery entries: `content/gallery/*.md`
+- News posts: `content/news/*.md`
 - Public assets: `public/`
 - Markdown utilities: `app/components/md.ts`
 
