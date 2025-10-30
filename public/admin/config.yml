@@ -2,6 +2,8 @@ backend:
   name: github
   repo: vishalnatekar/ajitmanochetan
   branch: main
+  base_url: https://netlify-cms-github-oauth-provider-zeta.vercel.app
+  auth_endpoint: /auth
 
 media_library:
   name: cloudinary
