@@ -8,10 +8,13 @@
     <script>
       window.CMS_CONFIG_URL = '/admin/config.yml';
     </script>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script src="https://unpkg.com/decap-cms-media-library-cloudinary@^1.4.0/dist/decap-cms-media-library-cloudinary.js"></script>
   </head>
   <body>
+    <div id="nc-root"></div>
     <script>
       if (typeof CMS !== 'undefined') {
         CMS.registerMediaLibrary(cloudinary);
