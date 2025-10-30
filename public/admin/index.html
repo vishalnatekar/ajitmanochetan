@@ -3,36 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Site Admin</title>
-    <meta name="robots" content="noindex" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script>
-      window.CMS_MANUAL_INIT = true;
-      window.CMS_CONFIG_URL = '/admin/config.yml';
-    </script>
-    <script src="/admin/netlify-cms.js"></script>
-    <script>
-      window.CMS_ENV = window.CMS_ENV || {};
-      window.CMS_ENV.CLOUDINARY_LIBRARY = '/admin/cloudinary.js';
-    </script>
-    <script src="/admin/cloudinary.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div id="nc-root"></div>
-    <script>
-      function initCMS() {
-        if (typeof CMS === 'undefined') {
-          console.error('Decap CMS failed to load.');
-          return;
-        }
-        CMS.registerMediaLibrary(cloudinary);
-        CMS.init();
-      }
-
-      if (document.readyState === 'complete') {
-        initCMS();
-      } else {
-        window.addEventListener('load', initCMS);
-      }
-    </script>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   </body>
 </html>
