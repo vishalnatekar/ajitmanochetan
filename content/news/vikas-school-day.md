@@ -1,8 +1,7 @@
 ---
-title: "Vikas School Day"
-date: "2024-11-25"
-cover: "https://res.cloudinary.com/demo/image/upload/v1698765438/flag.jpg"
-summary: "Learners showcased performances, vocational crafts, and therapy milestones."
+title: Ajit Manochetana
+date: 2024-11-25
+cover: https://res.cloudinary.com/dsptnmry1/image/upload/v1761849611/Screenshot_2025-10-28_at_21.38.10_dkgsqw.png
+summary: "To be updated "
 ---
-
-Learners, teachers, and families celebrated Vikas School Day with performances, skill showcases, and recognition for progress across therapy goals. CSR partners participated in panel discussions about inclusive employment pathways.
+To be updated here
