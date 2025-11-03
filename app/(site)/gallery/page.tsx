@@ -37,15 +37,21 @@ export default function GalleryPage() {
                   ? [photo.data.image]
                   : []
 
+            const fallbackCaption = (photo.data.description as string) ?? (photo.data.title as string)
+
             return imageList
               .map((image, index) => {
                 const src = typeof image === 'string' ? image : image?.image
                 if (!src) return null
 
-                const caption = (photo.data.description as string) ?? (photo.data.title as string)
+                const perImageCaption =
+                  typeof image === 'object' && image !== null && 'caption' in image ? (image.caption as string) : undefined
+                const caption = perImageCaption ?? fallbackCaption
                 const alt =
-                  (photo.data.title as string) ??
-                  (caption ? `Gallery image: ${caption}` : `Gallery image ${index + 1}`)
+                  typeof image === 'object' && image !== null && 'alt' in image && image.alt
+                    ? (image.alt as string)
+                    : (photo.data.title as string) ??
+                      (caption ? `Gallery image: ${caption}` : `Gallery image ${index + 1}`)
 
                 return (
                   <figure
