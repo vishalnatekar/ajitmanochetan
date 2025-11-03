@@ -24,26 +24,41 @@ export default function GalleryPage() {
         </p>
       ) : (
         <div className="grid gap-6 md:grid-cols-2">
-          {photos.map((photo) => (
-            <figure
-              key={photo.slug}
-              className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100"
-            >
-              {photo.data.image ? (
-                <img
-                  src={photo.data.image as string}
-                  alt={(photo.data.title as string) ?? 'Gallery image'}
-                  loading="lazy"
-                  className="h-auto w-full"
-                />
-              ) : null}
-              {(photo.data.description || photo.data.title) && (
-                <figcaption className="px-4 py-3 text-sm text-slate-600">
-                  {(photo.data.description as string) ?? (photo.data.title as string)}
-                </figcaption>
-              )}
-            </figure>
-          ))}
+          {photos.flatMap((photo) => {
+            const rawImages = Array.isArray(photo.data.images)
+              ? photo.data.images
+              : photo.data.images
+                ? [photo.data.images]
+                : []
+            const imageList =
+              rawImages.length > 0
+                ? rawImages
+                : photo.data.image
+                  ? [photo.data.image]
+                  : []
+
+            return imageList
+              .map((image, index) => {
+                const src = typeof image === 'string' ? image : image?.image
+                if (!src) return null
+
+                const caption = (photo.data.description as string) ?? (photo.data.title as string)
+                const alt =
+                  (photo.data.title as string) ??
+                  (caption ? `Gallery image: ${caption}` : `Gallery image ${index + 1}`)
+
+                return (
+                  <figure
+                    key={`${photo.slug}-${index}`}
+                    className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100"
+                  >
+                    <img src={src} alt={alt} loading="lazy" className="h-auto w-full" />
+                    {caption ? <figcaption className="px-4 py-3 text-sm text-slate-600">{caption}</figcaption> : null}
+                  </figure>
+                )
+              })
+              .filter(Boolean)
+          })}
         </div>
       )}
     </section>
