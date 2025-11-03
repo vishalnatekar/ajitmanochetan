@@ -36,7 +36,13 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
       - { label: "Description", name: "description", widget: "text", required: false }
       - { label: "Order", name: "order", widget: "number", required: false, hint: "Lower numbers appear first." }
 
