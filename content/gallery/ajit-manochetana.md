@@ -35,5 +35,5 @@ images:
   - https://res.cloudinary.com/dsptnmry1/image/upload/v1762203735/1_v0y7pt.jpg
   - https://res.cloudinary.com/dsptnmry1/image/upload/v1762203735/2_njxubu.jpg
   - https://res.cloudinary.com/dsptnmry1/image/upload/v1761849943/20_1_criqra.jpg
-description: test description
+description: ""
 ---
