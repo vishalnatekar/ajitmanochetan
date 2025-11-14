@@ -24,46 +24,22 @@ export default function GalleryPage() {
         </p>
       ) : (
         <div className="grid gap-6 md:grid-cols-2">
-          {photos.flatMap((photo) => {
-            const rawImages = Array.isArray(photo.data.images)
-              ? photo.data.images
-              : photo.data.images
-                ? [photo.data.images]
-                : []
-            const imageList =
-              rawImages.length > 0
-                ? rawImages
-                : photo.data.image
-                  ? [photo.data.image]
-                  : []
+          {photos.map((photo) => {
+            const src = photo.data.image as string
+            if (!src) return null
 
-            const fallbackCaption = (photo.data.description as string) ?? (photo.data.title as string)
+            const caption = (photo.data.description as string) || (photo.data.title as string)
+            const alt = (photo.data.title as string) || (caption ? `Gallery image: ${caption}` : 'Gallery image')
 
-            return imageList
-              .map((image, index) => {
-                const src = typeof image === 'string' ? image : image?.image
-                if (!src) return null
-
-                const perImageCaption =
-                  typeof image === 'object' && image !== null && 'caption' in image ? (image.caption as string) : undefined
-                const caption = perImageCaption ?? fallbackCaption
-                const alt =
-                  typeof image === 'object' && image !== null && 'alt' in image && image.alt
-                    ? (image.alt as string)
-                    : (photo.data.title as string) ??
-                      (caption ? `Gallery image: ${caption}` : `Gallery image ${index + 1}`)
-
-                return (
-                  <figure
-                    key={`${photo.slug}-${index}`}
-                    className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100"
-                  >
-                    <img src={src} alt={alt} loading="lazy" className="h-auto w-full" />
-                    {caption ? <figcaption className="px-4 py-3 text-sm text-slate-600">{caption}</figcaption> : null}
-                  </figure>
-                )
-              })
-              .filter(Boolean)
+            return (
+              <figure
+                key={photo.slug}
+                className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100"
+              >
+                <img src={src} alt={alt} loading="lazy" className="h-auto w-full" />
+                {caption ? <figcaption className="px-4 py-3 text-sm text-slate-600">{caption}</figcaption> : null}
+              </figure>
+            )
           })}
         </div>
       )}
